@@ -1,5 +1,11 @@
+import LoginHomePage from "../../components/Logins";
+
 export default function Register() {
     return (
-        <>Register</>
+        <>
+            <LoginHomePage
+            lregister = {true}
+            />
+        </>
     )
 }

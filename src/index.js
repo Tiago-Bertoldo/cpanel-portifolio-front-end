@@ -10,6 +10,7 @@ import Dashboard from './Pages/Dashboard';
 import Projet from './Pages/Projet';
 import Error from './Pages/Error'
 import LoginHomePage from './Pages/Home';
+import Register from './Pages/Register';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -20,6 +21,7 @@ root.render(
               <Route path='/' element={<LoginHomePage/>}/>
               <Route path='/dashboard' element={<Dashboard/>}/>
               <Route path='/projet' element={<Projet/>}/>
+              <Route path='/register' element={<Register/>}/>
               <Route path='*' element={<Error/>}>
             </Route>
           </Routes>
