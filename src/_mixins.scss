@@ -1,3 +1,15 @@
-@mixin inputForm {
-    
+@mixin dashboard-display {
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+}
+
+@mixin dashboard-container{
+    width: 100%;
+    max-width: 1240px;
+    display: flex;
+    justify-content: center;
+    color: white;
+    margin:  0 auto;
 }

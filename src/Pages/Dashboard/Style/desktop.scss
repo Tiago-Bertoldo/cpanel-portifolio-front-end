@@ -1,0 +1,10 @@
+@import '../../../variables';
+@import '../../../mixins';
+
+.dashboard-display {
+    @include dashboard-display
+}
+
+.dashboard-display-container {
+   @include dashboard-container
+}

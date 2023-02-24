@@ -4,6 +4,7 @@
     display: flex;
     height: 100vh;
     background-color: $backgroundColor-blue;
+    justify-content: center;
     .login-container{
         width: 100%;
         max-width: 1240px;
