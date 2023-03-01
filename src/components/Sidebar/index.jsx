@@ -5,9 +5,12 @@ export default function SideBar() {
     return (
         <section className="container-sidebar">
             <nav className="container-sidebar__nav">
-                <Link to='/dashboard'>Home</Link>
+                <Link className='link-btn ' to='/dashboard'>Home</Link>
                 <Link to='/projet'>Projet</Link>
             </nav>
+            <div className="section-btn-responsive">
+                
+            </div>
         </section>
     )
 }

@@ -1,10 +1,91 @@
 @import '../../../variables';
 @import '../../../mixins';
 
-.dashboard-display {
-    @include dashboard-display
+.container-form{
+    width: 100%;
+    max-width: 1240px;
+    display: flex;
+    flex-direction: column;
+    color: $backgroundColor-bege;
+    margin-top: 5em;
+    animation: effect-loading 1s;
+    h2 {
+        color: $backgroundColor-bege;
+        margin:  0 auto;
+        padding: 0;
+    }
+    form {
+        width: 100%;
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
+        margin:  2em auto ;
+        min-width: 320px;
+        font-size: 12px;
+        padding: 0;
+        
+    }
+    &__left , &__right{
+        width: 45%;
+        display: flex;
+        flex-direction: column;
+        min-width: 300px;
+        margin:  0 auto;
+        padding-left: 1em;
+        label {
+            width: 40%;
+            margin-top: 0.5em;
+        }
+        input {
+            width: 80%;
+            height: 2em;
+            min-width: 200px;
+        }
+        .btn-effect-moins {
+            display: none;
+        }
+        .active-effect-moins {
+            display: inline-block;
+        }
+        .desactive-effect-plus{
+            display: none;
+        }
+        .btn-effect-more , .btn-effect-moins {
+            border: none;
+            background-color: transparent;
+            color: white;
+            padding: 1em;
+        }
+        .techonologie {
+            margin-bottom: 1em;
+        }
+        .btn-submit-projet {
+            margin-top: 1em;
+            width: 82%;
+            height: 3em;
+            border-radius: 5px;
+            background-color: $backgroundColor-bege;
+            color: $backgroundColor-blue;
+            font-weight: 600;
+            cursor: pointer;
+        }
+        .btn-effect-more , .btn-effect-moins {
+            color: $backgroundColor-bege;
+            margin: 0 ;
+            padding: 0.3em;
+            cursor: pointer;
+        }
+        
+    }
+
+
 }
 
-.dashboard-display-container {
-   @include dashboard-container
+@keyframes effect-loading {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
 }

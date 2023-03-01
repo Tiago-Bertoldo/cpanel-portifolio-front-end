@@ -3,7 +3,7 @@ import './Styles/desktop.scss';
 import { useState } from 'react';
 import { loginUser } from '../../fetchAPI';
 import { useNavigate } from 'react-router-dom';
-
+import {infoProjet} from '../bd_json/index'
 
 
 export default function LoginHomePage({lregister}) {
@@ -16,11 +16,19 @@ export default function LoginHomePage({lregister}) {
     email : ''
   })
 
+  const getProjetLength = infoProjet.length;
+
+  
+
   //Validate login
   const handleValidateLogin = (e) => {
       e.preventDefault()
     if(loginUser.login === userParametres.login && loginUser.password === userParametres.password) {
-      projetActive ? navigate("/dashboard") : navigate("/projet");
+        if(getProjetLength === 0){
+          navigate('/projet')
+        }else {
+          navigate('/dashboard')
+        }
     } else {
       let errorMsg = document.querySelector('.msg-error')
       errorMsg.innerHTML = 'Votre identifiant ou votre mot de passe est incorrect.'

@@ -1,2 +1,22 @@
 @import '../../../variables';
 
+@media screen and (max-width: 620px) {
+    .container-sidebar {
+        position: absolute;
+        left: 0;
+        transform: translateX(-70px);
+        overflow-x: hidden;
+        transition: all 1s ease-in-out;
+        .section-btn-responsive {
+            display: flex !important;
+            border-right: 3px ridge $backgroundColor-bege;
+        }
+        &:hover {
+            transform: translateX(0px);
+            
+        }
+        
+    }
+    
+    
+}
