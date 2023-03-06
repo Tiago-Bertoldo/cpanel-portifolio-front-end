@@ -13,7 +13,16 @@ export default function Projet () {
     let valuesTech = []
     useEffect(()=>{},[formValues])
 
-    
+    const handleDateValidArray = (datesArray) => {
+        let getMsgError = document.querySelector('.msg-error')
+       if(datesArray === '') {
+            getMsgError.innerHTML = 'Vazio'
+       }else {
+            getMsgError.innerHTML = ''
+            handleInjectValues(datesArray)
+       }
+       
+    }
 
     const handleAddInput = (e) => {
         e.preventDefault()
@@ -26,41 +35,29 @@ export default function Projet () {
                 btnInputMoins.classList.add('active-effect-moins')
                 inputElement.setAttribute('class' , 'techonologies')
                 moreInput.appendChild(inputElement)
-                
             }
         
         }
     }
     const handleTecnologie = () => {
-    let lenghtTechonologie = document.querySelectorAll('.techonologie')
     let getTechonologies = document.querySelectorAll('.techonologies')
-    let createMsg = document.createElement('p')
-    createMsg.setAttribute('class' , 'existe')
-    let getAll = document.querySelectorAll('.existe')
+    getTechonologies.forEach(element => {
+       if(element.value === '') {
+            handleDateValidArray(element.value)
+       }else {
+            handleDateValidArray(element.value)
+       }
+    });
     
-
-    if(getTechonologies.value === undefined){
-        let moreInput = document.querySelector('.btn-more-input')
-        createMsg.innerHTML = ' Vlaor'
-        moreInput.appendChild(createMsg)
-        if(getAll.length >= 1){
-            moreInput.removeChild(moreInput.lastChild)
-        }
-        
-    }else {
-            handleInjectValues(lenghtTechonologie)
-    }
 
 }
 
     const handleInjectValues = (lenghtTechonologie) =>{
-    lenghtTechonologie.forEach(element => {
-        valuesTech.push(element.value)
-     });
- 
-     setFormValues((prevState) =>({
-         ...prevState , valuesTech
-     }))
+        valuesTech.push(lenghtTechonologie)
+    
+        setFormValues((prevState) =>({
+            ...prevState , valuesTech
+        }))
     
  }
 
@@ -70,7 +67,7 @@ export default function Projet () {
         let btnInputMoins= document.querySelector('.btn-effect-moins')
         if(lenghtTechonologie.length >= 1) {
             let moreInput = document.querySelector('.btn-more-input')
-            moreInput.removeChild(moreInput.lastElementChild)
+            moreInput.removeChild(moreInput.lastChild)
         }
         if(lenghtTechonologie.length === 2 ) {
             btnInputMoins.classList.remove('active-effect-moins')
@@ -78,8 +75,9 @@ export default function Projet () {
         
     }
 
-
-
+    // const createInjectAPI = () => {
+    //     console.log('Hello')
+    // }
     return (
         <section className="dashboard-display">
                 <SideBar/>
@@ -124,6 +122,7 @@ export default function Projet () {
                                 </div>
 
                                 <span className="btn-more-input"></span>
+                                <span className="msg-error"></span>
                         </aside>
                         {/* aside left */}
                         <aside className="container-form__right">

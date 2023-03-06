@@ -75,6 +75,13 @@
             padding: 0.3em;
             cursor: pointer;
         }
+        .btn-more-input {
+            display: flex;
+            flex-direction: column;
+            span {
+                margin-top: -1em;
+            }
+        }
         
     }
 
