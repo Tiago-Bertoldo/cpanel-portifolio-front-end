@@ -7,7 +7,7 @@ import { useForm } from "react-hook-form";
 
 
 
-export default function Projet () {
+export default function Projet ({username}) {
     const [formValues , setFormValues] = useState([])
     const { register, handleSubmit, formState: { errors } } = useForm();
     let valuesTech = []
@@ -28,15 +28,15 @@ export default function Projet () {
         e.preventDefault()
         let moreInput = document.querySelector('.btn-more-input')
         let lenghtTechonologie = document.querySelectorAll('.techonologie')
-        let btnInputMoins= document.querySelector('.btn-effect-moins')
+        let lenghtTechonologies = document.querySelectorAll('.techonologies')
+        let btnInputMoins = document.querySelector('.btn-effect-moins')
         let inputElement = document.createElement('input')
         if(lenghtTechonologie.length >= 1) {
-            if(lenghtTechonologie.length !== 7){
+            if(lenghtTechonologies.length !== 7){
                 btnInputMoins.classList.add('active-effect-moins')
                 inputElement.setAttribute('class' , 'techonologies')
                 moreInput.appendChild(inputElement)
             }
-        
         }
     }
     const handleTecnologie = () => {
@@ -49,7 +49,6 @@ export default function Projet () {
        }
     });
     
-
 }
 
     const handleInjectValues = (lenghtTechonologie) =>{
@@ -63,13 +62,13 @@ export default function Projet () {
 
     const handleRemoveInput = (e) => {
         e.preventDefault()
-        let lenghtTechonologie = document.querySelectorAll('.techonologie')
+        let lenghtTechonologies = document.querySelectorAll('.techonologies')
         let btnInputMoins= document.querySelector('.btn-effect-moins')
-        if(lenghtTechonologie.length >= 1) {
+        if(lenghtTechonologies.length >= 1) {
             let moreInput = document.querySelector('.btn-more-input')
             moreInput.removeChild(moreInput.lastChild)
         }
-        if(lenghtTechonologie.length === 2 ) {
+        if(lenghtTechonologies.length === 2 ) {
             btnInputMoins.classList.remove('active-effect-moins')
         }
         
@@ -81,6 +80,7 @@ export default function Projet () {
     return (
         <section className="dashboard-display">
                 <SideBar/>
+
                <section className="dashboard-display-container">
                 <section className="container-form">
                         <h2>Ajouter un Projet</h2>

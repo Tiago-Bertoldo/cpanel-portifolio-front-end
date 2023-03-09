@@ -1,7 +1,7 @@
 @import '../../../variables';
 
 .container-sidebar {
-    width: 5em;
+    width: 8em;
     height: 110vh;
     background-color: $color-btn;
     color: white;
@@ -14,7 +14,9 @@
         text-align: center;
         justify-content: center;
         .link-btn {
-            margin-bottom: 2em;
+            margin-bottom: 1.5em;
+            color: $backgroundColor-bege ;
+            font-size: 20px;
         }
     }
     .btn-active {
@@ -34,4 +36,5 @@
         justify-content: center;
         display: none;
     }
+
 }

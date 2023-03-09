@@ -8,7 +8,6 @@ import {infoProjet} from '../bd_json/index'
 
 export default function LoginHomePage({lregister}) {
   const navigate = useNavigate();
-  const [projetActive , setProjetActive] = useState(true);
   const [userRegister , setUserRegister ] = useState(lregister)
   const [userParametres , setUserParametres] = useState({
     login : '',
@@ -18,12 +17,12 @@ export default function LoginHomePage({lregister}) {
 
   const getProjetLength = infoProjet.length;
 
-  
-
   //Validate login
   const handleValidateLogin = (e) => {
       e.preventDefault()
-    if(loginUser.login === userParametres.login && loginUser.password === userParametres.password) {
+    
+      loginUser.forEach(element => {
+      if(element.login === userParametres.login && element.password === userParametres.password) {
         if(getProjetLength === 0){
           navigate('/projet')
         }else {
@@ -33,24 +32,39 @@ export default function LoginHomePage({lregister}) {
       let errorMsg = document.querySelector('.msg-error')
       errorMsg.innerHTML = 'Votre identifiant ou votre mot de passe est incorrect.'
     }
+    });
+    
     
   }
 
   //Register User
   const handleRegisterUser = (e) =>{
     e.preventDefault();
-    let errorLogin = document.querySelector('.login')
-    let errorEmail = document.querySelector('.email')
-    if(loginUser.login === userParametres.login) {
-      errorLogin.innerHTML = 'Nom deja utilize voulez choisir un nouveau nom'
+    let errorLogin = document.querySelector('.error-login')
+    let errorEmail = document.querySelector('.error-email')
+    let setLoginUser = ''
+    let setEmailUser = ''
+    loginUser.forEach(element => {
+      if(userParametres.login === element.login){
+        setLoginUser = element.login
+      }
+      if (userParametres.email === element.email){
+        setEmailUser = element.email
+      }
+    });
+
+    if(userParametres.email === setEmailUser){
+      errorEmail.innerHTML = 'Email déjà existant.'
     }else {
-      errorLogin.innerHTML = ' '
+      errorEmail.innerHTML = ''
     }
-    if(loginUser.email === userParametres.email){
-      errorEmail.innerHTML = 'Email deja utilize voulez choisir un nouveau email '
+
+    if(userParametres.login === setLoginUser){
+      errorLogin.innerHTML = 'Login déjà existant'
     }else {
-      errorEmail.innerHTML = ' '
+      errorLogin.innerHTML = ''
     }
+    
 
   }
 
@@ -66,19 +80,20 @@ export default function LoginHomePage({lregister}) {
                   ...prevState, login:e.target.value
                 }))}
                 />
-                <span className='msg-error login'></span>
+                <span className='error-login'></span>
                 <label htmlFor="email">Email : </label>
                 <input type="email" name="email" id="email" className='input-style-login' 
                 onChange={(e) => setUserParametres((prevState)=> ({
                   ...prevState, email:e.target.value
                 }))}/>
-                <span className='msg-error email'></span>
+                <span className='error-email'></span>
                 <label htmlFor="password">Password : </label>
                 <input type="password" name="password" id="password" className='input-style-login' 
                 onChange={(e) => setUserParametres((prevState)=> ({
                   ...prevState, password:e.target.value
                 }))}/>
-                <button>  Register   </button>
+                <button className='register-btn'>  Register   </button>
+                <span className='registrer-style' onClick={()=> setUserRegister(false)}>Login...</span>
               </form>
           </div>
             

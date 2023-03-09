@@ -13,14 +13,12 @@
         align-items: center;
         &__form {
             width: 500px;
-            height: 400px;
             background-color: $color-btn;
             border-radius: 10px;
             display: flex;
             justify-content: center;
             box-shadow: 1px 1px 5px #c5c5c5,
              -1px -1px 5px #ffffff;
-
         }
         form{
             width: 85%;
@@ -35,16 +33,11 @@
                 line-height: 36px;
                 text-align: center;
             }
-            .msg-error {
+            .msg-error  , .error-email , .error-login{
                 color: rgb(122, 15, 15);
                 font-size: 14px;
                 margin: -0.5em 0 1em 0 ;
             }
-
-            .msg-error login {
-                color: blue;
-            }
-
             input {
                 height: 35px;
                 margin-bottom: 1em;
@@ -60,7 +53,7 @@
                 border-radius: 5px;
                 font-family: 'Inter', sans-serif;
                 font-weight: 300;
-                margin-bottom: 0.30em;
+                margin-bottom: 1.30em;
                 font-size: 14px;
                 transition: all 0.4s ease-in-out;
                 cursor: pointer;
@@ -83,6 +76,7 @@
         .registrer-style{
             cursor: pointer;
             font-size: 14px;
+            margin-bottom: 1em;
             color: $backgroundColor-bege;
              &:hover{
                  color: #c5c5c5;

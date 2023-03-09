@@ -1,0 +1,12 @@
+@import '../../../variables';
+
+#welcome-user {
+    width: 250px;
+    position: absolute;
+    color: white;
+    left: 15px;
+    font-size: 12px;
+    span {
+        color: $backgroundColor-bege;
+    }
+}
