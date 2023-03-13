@@ -1,9 +1,10 @@
 import './Style/desktop.scss'
-export default function Welcome ({username}){
+
+export default function Welcome ({login}){
     return (
         <section id='welcome-user'>
             <div>
-                <p>Welcome <span> {username} </span></p>
+                <p>Welcome <span> {login} </span></p>
             </div>
         </section>
         

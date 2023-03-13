@@ -2,9 +2,46 @@
 @import '../../../mixins';
 
 .dashboard-display {
-    @include dashboard-display
+    @include dashboard-display;
+   
 }
 
 .dashboard-display-container {
-   @include dashboard-container
+   @include dashboard-container;
+   animation: effect-loading 1s;
+   h2 {
+    height: 5%;
+    }
+    .container-projets {
+        width: 100%;
+        display: flex;
+        min-width: 250px;
+        flex-wrap: wrap;
+        align-items: center;
+    .btn-all-projets{
+        display: flex;
+        padding: 1.3em;
+        width: 100%;
+        min-width: 250px;
+        max-width: 550px;
+        text-decoration: none;
+        &__buttom {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            border: 1px solid green;
+            background-color: $backgroundColor-bege;
+            color: $backgroundColor-blue;
+            padding: 1em;
+            border-radius: 5px;
+            font-weight: 600;
+            span {
+                font-weight: 700;
+            }
+        }
+        }
+    }
 }
+
+@include effect-loading;

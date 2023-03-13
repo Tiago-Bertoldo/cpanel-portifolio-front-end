@@ -1,14 +1,14 @@
 import './Styles/responsive.scss';
 import './Styles/desktop.scss';
-import { useState } from 'react';
+import { useState, useContext } from 'react';
 import { loginUser } from '../../fetchAPI';
 import { useNavigate } from 'react-router-dom';
 import {infoProjet} from '../bd_json/index'
-
-
+import {AuthLogin} from '../../context/AuthLogin'
 export default function LoginHomePage({lregister}) {
   const navigate = useNavigate();
-  const [userRegister , setUserRegister ] = useState(lregister)
+  const [userRegister , setUserRegister ] =  useState(lregister)
+  const {setIsValid , setUserActive} = useContext(AuthLogin)
   const [userParametres , setUserParametres] = useState({
     login : '',
     password : '',
@@ -20,14 +20,18 @@ export default function LoginHomePage({lregister}) {
   //Validate login
   const handleValidateLogin = (e) => {
       e.preventDefault()
-    
       loginUser.forEach(element => {
-      if(element.login === userParametres.login && element.password === userParametres.password) {
-        if(getProjetLength === 0){
+      if(element.login === userParametres.login && element.password === userParametres.password) {     
+        setIsValid(true)
+        setUserActive(userParametres.login)
+        if(getProjetLength === 0 ){
           navigate('/projet')
         }else {
           navigate('/dashboard')
         }
+
+
+      
     } else {
       let errorMsg = document.querySelector('.msg-error')
       errorMsg.innerHTML = 'Votre identifiant ou votre mot de passe est incorrect.'
@@ -67,6 +71,7 @@ export default function LoginHomePage({lregister}) {
     
 
   }
+
 
   return ( userRegister ? 
     <section id="homepage">

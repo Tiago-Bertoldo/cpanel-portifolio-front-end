@@ -2,17 +2,23 @@ import SideBar from "../../components/Sidebar"
 import './Style/desktop.scss';
 import './Style/responsive.scss';
 import {AiOutlinePlus , AiOutlineMinus} from 'react-icons/ai' 
-import { useEffect, useState } from "react";
+import {useEffect, useState ,useContext} from "react";
 import { useForm } from "react-hook-form";
+import {AuthLogin} from '../../context/AuthLogin'
+import LoginHomePage from "../../components/Logins";
 
 
-
-export default function Projet ({username}) {
+export default function Projet () {
     const [formValues , setFormValues] = useState([])
+    const {useStore} = useContext(AuthLogin)
     const { register, handleSubmit, formState: { errors } } = useForm();
     let valuesTech = []
     useEffect(()=>{},[formValues])
+    useEffect(() => {} ,[useStore])
 
+    
+    
+  
     const handleDateValidArray = (datesArray) => {
         let getMsgError = document.querySelector('.msg-error')
        if(datesArray === '') {
@@ -77,7 +83,8 @@ export default function Projet ({username}) {
     // const createInjectAPI = () => {
     //     console.log('Hello')
     // }
-    return (
+
+    return useStore ? ( 
         <section className="dashboard-display">
                 <SideBar/>
 
@@ -160,10 +167,8 @@ export default function Projet ({username}) {
                         </aside>
                         
                     </form>
-{/* 
-                    <form onSubmit={(e) => handleTecnologie(e)} ></form> */}
                 </section>
                </section>
         </section>
-    )
+    ) : (<LoginHomePage/>)
 }

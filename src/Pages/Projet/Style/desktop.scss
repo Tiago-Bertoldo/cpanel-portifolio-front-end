@@ -7,7 +7,7 @@
     display: flex;
     flex-direction: column;
     color: $backgroundColor-bege;
-    margin-top: 5em;
+    margin-top: 1em;
     animation: effect-loading 1s;
     h2 {
         color: $backgroundColor-bege;
@@ -56,7 +56,7 @@
             color: white;
             padding: 1em;
         }
-        .techonologie {
+        .techonologie , .techonologies {
             margin-bottom: 1em;
         }
         .btn-submit-projet {
@@ -88,11 +88,4 @@
 
 }
 
-@keyframes effect-loading {
-    0% {
-        opacity: 0;
-    }
-    100% {
-        opacity: 1;
-    }
-}
+@include effect-loading;
