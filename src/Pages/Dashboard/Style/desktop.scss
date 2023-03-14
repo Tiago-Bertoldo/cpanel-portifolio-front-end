@@ -8,22 +8,23 @@
 
 .dashboard-display-container {
    @include dashboard-container;
-   animation: effect-loading 1s;
    h2 {
     height: 5%;
     }
     .container-projets {
         width: 100%;
+        max-width: 800px;
         display: flex;
-        min-width: 250px;
         flex-wrap: wrap;
         align-items: center;
+        justify-content: space-between;
+
     .btn-all-projets{
         display: flex;
         padding: 1.3em;
-        width: 100%;
-        min-width: 250px;
-        max-width: 550px;
+        width: 30%;
+        min-width: 350px;
+        max-width: 500px;
         text-decoration: none;
         &__buttom {
             width: 100%;

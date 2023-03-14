@@ -1,2 +1,16 @@
 @import '../../../variables';
 
+
+@media screen and (max-width: 992px) {
+    .container-projets {
+       justify-content: center;
+    }
+
+    .btn-all-projets {
+        padding: 1em !important;
+        min-width: 300px !important;
+        margin: 0 auto;
+
+    }
+
+  }

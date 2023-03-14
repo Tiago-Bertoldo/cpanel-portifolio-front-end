@@ -1,2 +1,16 @@
 @import '../../../variables';
 @import '../../../mixins';
+
+
+#all-projets-container {
+   @include dashboard-display;
+   .container-projets{
+    @include dashboard-container;
+    h2 {
+        margin-top: 1em;
+    }
+    span {
+        color: $color-btn;
+    }
+   }
+}

@@ -2,7 +2,6 @@
     width: 100%;
     margin: 0 auto;
     display: flex;
-    justify-content: center;
 }
 
 @mixin dashboard-container{
@@ -13,6 +12,7 @@
     align-items: center;
     color: $backgroundColor-bege;
     margin:  1em auto;
+    animation: effect-loading 1s;
 }
 
 @mixin effect-loading {
