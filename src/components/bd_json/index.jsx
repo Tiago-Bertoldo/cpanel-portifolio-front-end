@@ -1,6 +1,3 @@
-
-
-
 export const infoProjet = [
     {
         "id":"202301",

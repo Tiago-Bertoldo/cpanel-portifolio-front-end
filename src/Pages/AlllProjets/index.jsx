@@ -11,8 +11,8 @@ export default function AllProjets() {
     return(
         <main id="all-projets-container">
         <SideBar/>
-            <section className="container-projets">
-                <div className="header-projets">
+            <section className="allprojets-container">
+                <section className="header-projets">
                     {infoProjet.map((element) => (
                         element.id === idProjet ?  (
                             <div key={element.id}>
@@ -20,9 +20,18 @@ export default function AllProjets() {
                             </div>
                         ): null
                     ))}
-                </div>
-                
+                </section>
+
+                <section className="container-info-projets">
+                    <div className="bloco-one">
+                         <h2>DERIVADO 1</h2>
+                    </div>
+                    <div className="bloco-two">
+                        <h2>DERIVADO 2</h2>
+                        </div>
+                </section>
             </section>
+           
             
         </main>
     )

@@ -4,7 +4,7 @@
 
 #all-projets-container {
    @include dashboard-display;
-   .container-projets{
+   .allprojets-container{
     @include dashboard-container;
     h2 {
         margin-top: 1em;
@@ -13,4 +13,23 @@
         color: $color-btn;
     }
    }
+}
+
+.container-info-projets {
+    width: 100%;
+    border: 1px solid red;
+    display: flex;
+    flex-wrap: wrap;
+    .bloco-one {
+        width: 50%;
+        min-width: 500px;
+        border: 1px solid green;
+        padding: 1em;
+    }
+     .bloco-two {
+        width: 40%;
+        min-width: 400px;
+        border: 1px solid green;
+        padding: 1em;
+    }
 }
