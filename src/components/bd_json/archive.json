@@ -1,4 +1,4 @@
-export const infoProjet = [
+[
     {
         "id":"202301",
         "nom":"KASA",
@@ -96,7 +96,7 @@ export const infoProjet = [
     }
     ,
     {
-        "id":"202307",
+        "id":"202306",
         "nom":"CORPORE",
         "tecnologie": [
             "Html et css avec javascript",
@@ -108,4 +108,4 @@ export const infoProjet = [
         "altImg" : "Projet Corpore creer en 2023",
         "background":"https://www.google.com"
     }
-] ;
+]

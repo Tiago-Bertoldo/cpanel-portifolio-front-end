@@ -1,19 +1,33 @@
 import { useParams } from "react-router"
 import { infoProjet } from "../../components/bd_json"
+import { useEffect, useState } from "react"
+import { useNavigate } from "react-router"
 import SideBar from "../../components/Sidebar"
 import './Styles/desktop.scss'
 import './Styles/mobile.scss'
 
+
 export default function AllProjets() {
     let {idProjet} = useParams()
-    // let isProjet = infoProjet.find((idProjet) => idProjet.id === idProjet);
+    const navigate = useNavigate();
+
+    const [dates , setDates] = useState(infoProjet)
+
+    const handleDeleteProjet = (element) => {
+        const old_values = dates.findIndex(index => index.id === idProjet)
+        dates.splice(old_values, 1)
+        setDates(dates)
+        navigate('/dashboard')
+    }
+
+
 
     return(
         <main id="all-projets-container">
         <SideBar/>
             <section className="allprojets-container">
                 <section className="header-projets">
-                    {infoProjet.map((element) => (
+                    {dates.map((element) => (
                         element.id === idProjet ?  (
                             <div key={element.id}>
                                 <h2>Projet <span>{element.nom}</span></h2>
@@ -22,15 +36,62 @@ export default function AllProjets() {
                     ))}
                 </section>
 
-                <section className="container-info-projets">
-                    <div className="bloco-one">
-                         <h2>DERIVADO 1</h2>
+                {dates.map((element => (
+                    element.id === idProjet &&(
+                        <section className="container-info-projets" key={element.id}>
+                         <div className="bloco-one">
+                            <article>
+                                <div className="bloco-one-left">
+                                    <ul>
+                                    <li>
+                                        <label htmlFor="Nom">Nom :</label>
+                                        <p>{element.nom}</p>
+                                    </li>
+                                    <li>
+                                        <label htmlFor="Nom">Technologie :</label>
+                                        {element.tecnologie.map((element , index) => (
+                                            <p key={index}>{element}</p>
+                                        ))}
+                                    </li>
+                                </ul>
+                                </div>
+                                <div className="bloco-one-right">
+                                    <ul>
+                                    <li>
+                                        <label htmlFor="url">Url Img :</label>
+                                        <p>{element.urlImg}</p>
+                                    </li>
+                                    <li>
+                                        <label htmlFor="github">Github :</label>
+                                        <p>{element.github}</p>
+                                    </li>
+                                    <li>
+                                        <label htmlFor="url">Url :</label>
+                                        <p>{element.url}</p>
+                                    </li>
+                                    <li>
+                                        <label htmlFor="alt img">Alt img :</label>
+                                        <p>{element.altImg}</p>
+                                    </li>
+                                </ul>
+                                
+                                </div>
+                            </article>
                     </div>
                     <div className="bloco-two">
-                        <h2>DERIVADO 2</h2>
-                        </div>
+                        <nav>
+                            <button onClick={() => console.log('Hello 1')}>EDIT</button>
+                            <button onClick={() => handleDeleteProjet(element)}>DELETE</button>
+                        </nav>
+                    </div>
                 </section>
+                    )
+                    
+                )))}
+                
+                
             </section>
+            
            
             
         </main>

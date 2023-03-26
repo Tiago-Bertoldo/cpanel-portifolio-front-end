@@ -16,20 +16,79 @@
 }
 
 .container-info-projets {
-    width: 100%;
-    border: 1px solid red;
+    width: 87%;
     display: flex;
     flex-wrap: wrap;
+    border: 1px solid $backgroundColor-bege;
+    border-radius: 1em;
+    margin: 1em 0 1em 0 ;
+    align-items: center;
     .bloco-one {
-        width: 50%;
-        min-width: 500px;
-        border: 1px solid green;
-        padding: 1em;
+        width: 70%;
+        min-width: 440px;
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+        article {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+
+        }
+        .bloco-one-left , .bloco-one-right{
+            width: 50%;
+            display: flex;
+            justify-content: space-between;
+            ul {
+                font-size: 12px;
+                list-style: none;
+                p {
+                    color: $color-btn;
+                    padding: 0;
+                    margin: 3px 0px 7px 0px;
+                    line-height: 14px;
+                }
+            }
+        }
+       
+        .menu-hidden {
+            display: none;
+            animation: 1s effect-loading;
+        }
+        .active-menu-hidden {
+            display: flex;
+            flex-direction: column;
+            animation: 1s effect-loading ease-in-out;
+        }
     }
      .bloco-two {
-        width: 40%;
-        min-width: 400px;
-        border: 1px solid green;
+        width: 20%;
+        min-width: 200px;
         padding: 1em;
+        display: flex;
+        align-items: center;
+        height: 200px;
+        nav {
+
+            display: flex;
+            justify-content: center;
+            width: 100%;
+            box-sizing: border-box;
+            button {
+                border: none;
+                min-width: 90px;
+                height: 40px;
+                margin: 1em;
+                background-color: blue;
+                color: $backgroundColor-bege;
+                background-color: $color-btn;
+                border-radius: 5px;
+                &:nth-child(2) {
+                    background-color: $backgroundColor-bege;
+                    color: $backgroundColor-blue;
+                    
+                }
+            }
+        }
     }
 }
