@@ -3,6 +3,8 @@ export default function Error404() {
     return(
         <>
         <p>Page 404</p>
+
+        <Link to={'/'}>Home</Link>
         </>
 
     )

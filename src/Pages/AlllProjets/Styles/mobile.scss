@@ -1,3 +1,8 @@
 @import '../../../variables';
 @import '../../../mixins';
 
+@media screen and (max-width: 500px) {
+    .bloco-one-left , .bloco-one-right {
+        width: 70% !important;
+    }
+}

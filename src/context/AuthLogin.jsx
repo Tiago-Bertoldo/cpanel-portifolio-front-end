@@ -12,7 +12,7 @@ export const AuthLoginValid = ({children}) => {
             localStorage.setItem('login' , JSON.stringify(true))
             localStorage.setItem('user' ,JSON.stringify(useActive) )
         }
-    },[isValid])
+    },[isValid, useActive])
  
     useEffect(() => {
         const getUser = JSON.parse(localStorage.getItem('login'))

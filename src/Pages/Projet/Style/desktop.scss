@@ -7,7 +7,6 @@
     display: flex;
     flex-direction: column;
     color: $backgroundColor-bege;
-    margin-top: 1em;
     animation: effect-loading 1s;
     h2 {
         color: $backgroundColor-bege;
@@ -26,38 +25,23 @@
         
     }
     &__left , &__right{
+        box-sizing: border-box;
         width: 45%;
         display: flex;
         flex-direction: column;
         min-width: 300px;
-        margin:  0 auto;
-        padding-left: 1em;
+        margin:  1em auto;
         label {
             width: 40%;
-            margin-top: 0.5em;
+            margin: 2em 0 .3em 0em;
         }
         input {
             width: 80%;
             height: 2em;
             min-width: 200px;
-        }
-        .btn-effect-moins {
-            display: none;
-        }
-        .active-effect-moins {
-            display: inline-block;
-        }
-        .desactive-effect-plus{
-            display: none;
-        }
-        .btn-effect-more , .btn-effect-moins {
+            height: 35px;
+            border-radius: 5px;
             border: none;
-            background-color: transparent;
-            color: white;
-            padding: 1em;
-        }
-        .techonologie , .techonologies {
-            margin-bottom: 1em;
         }
         .btn-submit-projet {
             margin-top: 1em;
@@ -68,21 +52,44 @@
             color: $backgroundColor-blue;
             font-weight: 600;
             cursor: pointer;
-        }
-        .btn-effect-more , .btn-effect-moins {
-            color: $backgroundColor-bege;
-            margin: 0 ;
-            padding: 0.3em;
-            cursor: pointer;
-        }
-        .btn-more-input {
+        }        
+    }
+
+    .input-tech {
+        width: 100%;
+        max-width: 350px;
+        display: flex;
+        flex-wrap: wrap;
+    }
+    .error-tags-full {
+
+        border: 2px solid red;
+    }
+    .error-tags-msg {
+        margin-top: 0.5em;
+        color: rgb(234, 123, 123);
+    }
+    .boxer-tags {
+        width: 100%;
+        display: flex;
+        margin-top: 5px;
+        flex-wrap: wrap;
+        .tags-btn {
             display: flex;
-            flex-direction: column;
+            background-color: $backgroundColor-bege;
+            color: $backgroundColor-blue;
+            border-radius: 5px;
+            padding: 4px 5px;
+            margin: 12px 7px 0 0px;
+            align-items: center ;
             span {
-                margin-top: -1em;
+                display: flex;
+                align-items: center;
+                margin: 5px;
+                font-size: 10px;
             }
+            
         }
-        
     }
 
 

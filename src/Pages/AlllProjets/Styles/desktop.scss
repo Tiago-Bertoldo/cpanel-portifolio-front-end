@@ -3,16 +3,19 @@
 
 
 #all-projets-container {
-   @include dashboard-display;
-   .allprojets-container{
-    @include dashboard-container;
-    h2 {
-        margin-top: 1em;
+    @include dashboard-display;
+
+    .allprojets-container {
+        @include dashboard-container;
+
+        h2 {
+            margin-top: 1em;
+        }
+
+        span {
+            color: $color-btn;
+        }
     }
-    span {
-        color: $color-btn;
-    }
-   }
 }
 
 .container-info-projets {
@@ -21,27 +24,38 @@
     flex-wrap: wrap;
     border: 1px solid $backgroundColor-bege;
     border-radius: 1em;
-    margin: 1em 0 1em 0 ;
+    margin: 1em 0 1em 0;
     align-items: center;
+    animation: 1s effect-loading ease-in;
+
     .bloco-one {
         width: 70%;
         min-width: 440px;
         display: flex;
         justify-content: space-between;
         align-items: flex-end;
+        flex-direction: column;
+
         article {
             width: 100%;
             display: flex;
             justify-content: space-between;
-
+            flex-wrap: wrap;
         }
-        .bloco-one-left , .bloco-one-right{
+
+        .bloco-one-left,
+        .bloco-one-right {
             width: 50%;
             display: flex;
             justify-content: space-between;
+            min-width: 300px;
+            align-items: center;
+            justify-content: flex-start;
+
             ul {
                 font-size: 12px;
                 list-style: none;
+
                 p {
                     color: $color-btn;
                     padding: 0;
@@ -50,30 +64,54 @@
                 }
             }
         }
-       
-        .menu-hidden {
-            display: none;
-            animation: 1s effect-loading;
-        }
-        .active-menu-hidden {
+
+    }
+
+    .form-edit-dates {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 0 auto;
+        margin-bottom: 2em;
+        animation: 1s effect-loading ease-in;
+
+        form {
+            width: 100%;
             display: flex;
-            flex-direction: column;
-            animation: 1s effect-loading ease-in-out;
+            flex-wrap: wrap;
+            justify-content: center;
+
+            .container-form__left,
+            .container-form__right {
+                margin-left: 1em;
+            }
+
+            label {
+                font-size: 12px;
+            }
         }
     }
-     .bloco-two {
-        width: 20%;
+
+    .desactive-form {
+        display: none;
+        animation: 1s effect-loading ease-in;
+    }
+
+    .bloco-two {
         min-width: 200px;
         padding: 1em;
         display: flex;
         align-items: center;
-        height: 200px;
-        nav {
+        justify-content: center;
+        margin: 0 auto;
 
+        nav {
             display: flex;
             justify-content: center;
             width: 100%;
             box-sizing: border-box;
+
             button {
                 border: none;
                 min-width: 90px;
@@ -83,10 +121,11 @@
                 color: $backgroundColor-bege;
                 background-color: $color-btn;
                 border-radius: 5px;
+
                 &:nth-child(2) {
                     background-color: $backgroundColor-bege;
                     color: $backgroundColor-blue;
-                    
+
                 }
             }
         }
