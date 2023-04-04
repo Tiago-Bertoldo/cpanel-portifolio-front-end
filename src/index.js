@@ -13,11 +13,13 @@ import LoginHomePage from './Pages/Home';
 import Register from './Pages/Register';
 import AuthLoginValid from './context/AuthLogin';
 import AllProjets from './Pages/AlllProjets';
+import EditPageValid from './context/EditPage';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
+    <EditPageValid>
     <AuthLoginValid>
     <Router>
             <Routes>
@@ -31,5 +33,6 @@ root.render(
           </Routes>
     </Router>
     </AuthLoginValid>
+    </EditPageValid>
   </React.StrictMode>
 );

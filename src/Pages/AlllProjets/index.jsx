@@ -5,13 +5,12 @@ import { useNavigate } from "react-router";
 import SideBar from "../../components/Sidebar";
 import "./Styles/desktop.scss";
 import "./Styles/mobile.scss";
+import Finish from "../../components/Forms";
 export default function AllProjets() {
   let { idProjet } = useParams();
   const navigate = useNavigate();
   const [isEdit, setIsEdit] = useState(false);
   const [dates, setDates] = useState(infoProjet);
-
-
   const handleDeleteProjet = (element) => {
     const old_values = dates.findIndex((index) => index.id === idProjet);
     dates.splice(old_values, 1);
@@ -94,7 +93,7 @@ export default function AllProjets() {
                   </nav>
                 </div>
                 <div className={isEdit ? "form-edit-dates" : "desactive-form"}>
-                 
+                          <Finish titleEdit={'Modifier le projet'} valueButton = {'Modifier'}   singEdit = {false} />
                 </div>
               </section>
             )

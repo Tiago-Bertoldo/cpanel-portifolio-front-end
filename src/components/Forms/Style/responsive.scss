@@ -1,0 +1,16 @@
+@import '../../../variables';
+
+@media screen and (max-width: 500px) {
+    .container-form {
+        &__left , &__right {
+            margin-left: 3em;
+            width: 100%;
+            min-width: 0;
+        }
+    }
+    .btn-submit-projet {
+        width: 83%;
+    }
+    
+}
+
